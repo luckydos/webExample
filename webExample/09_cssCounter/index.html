@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		
+		<title>CSS Counter</title>
+		
+		<style>
+			body > div { margin-left: 1rem; }
+			.hCounterWrap { counter-reset: section; }
+			.hCounter::before { counter-increment: section; content: counter(section) ". "; }
+
+			.oLiCountersWrap ol { counter-reset: olsection; list-style: none; }
+			.oLiCountersWrap li::before { counter-increment: olsection; content: counters(olsection, ".") " "; }
+		</style>
+		<script>
+			window.onload = function() {
+				
+			}
+		</script>
+
+	</head>
+	<body>
+		<h1>CSS Counter(s) Example</h1>
+
+		<hr>
+
+		<h2>counter</h2>
+		<div class="hCounterWrap">
+			<h3 class="hCounter">AAA</h3>
+			<h3 class="hCounter">BBB</h3>
+		</div>
+
+		<hr>
+
+		<h2>counters</h2>
+		<div class="oLiCountersWrap">
+			<ol>
+				<li>Depth1 - 1</li>
+				<li>Depth1 - 2
+					<ol>
+						<li>Depth2 - 1</li>
+						<li>Depth2 - 2</li>
+						<li>Depth2 - 3</li>
+					</ol>
+				</li>
+				<li>Depth1 - 3</li>
+				<li>Depth1 - 4</li>
+				<li>Depth1 - 5
+					<ol>
+						<li>Depth2 - 1</li>
+						<li>Depth2 - 2</li>
+						<li>Depth2 - 3</li>
+					</ol>
+				</li>
+				<li>Depth1 - 6</li>
+				<li>Depth1 - 7</li>
+				<li>Depth1 - 8</li>
+			</ol>
+		</div>
+
+		<hr>
+
+		<p>참고 : <a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters" target="_blank">CSS 카운터 사용하기(MDN web docs)</a></p>
+	</body>
+</html>

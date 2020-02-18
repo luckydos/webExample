@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		
+		<title>insertBefore Sample</title>
+		
+		<style>
+			body > div { margin-left: 1rem; }
+			ul.parent li.newNode { font-weight: bold; color: red; }
+		</style>
+		<script>
+			window.onload = function() {
+				let fst = document.getElementById('firstIns');
+				let lst = document.getElementById('lastIns');
+				let addCount = 0;
+				let referenceNode = '';
+				let parentUl = document.querySelector('ul.parent');
+
+				fst.addEventListener('click', function(event) {
+					addCount++
+					let newNode = document.createElement('li');
+					newNode.innerText = 'new Li Element(firstAdd) [' + addCount + ']';
+					newNode.className = 'newNode';
+
+					referenceNode = document.querySelector('ul.parent > li:first-child');
+					parentUl.insertBefore(newNode, referenceNode);
+				});
+				lst.addEventListener('click', function(event) {
+					addCount++;
+					let newNode = document.createElement('li');
+					newNode.innerText = 'new Li Element(lastAdd) [' + addCount + ']';
+					newNode.className = 'newNode';
+					
+					referenceNode = null;
+					parentUl.insertBefore(newNode, referenceNode);
+				});
+			}
+		</script>
+
+	</head>
+	<body>
+		<h1>insertBefore Sample</h1>
+
+		<hr>
+
+		<h2>insertBefore</h2>
+		<div id="buttonWrap">
+			<button id="firstIns">firstInsert</button>
+			<button id="lastIns">lastInsert</button>
+		</div>
+		<ul class="parent">
+			<li class="child">child1</li>
+			<li class="child">child2</li>
+			<li class="child">child3</li>
+		</ul>
+
+		<hr>
+
+		<p>참고 : <a href="https://developer.mozilla.org/ko/docs/Web/API/Node/insertBefore" target="_blank">Node.insertBefore()</a></p>
+	</body>
+</html>

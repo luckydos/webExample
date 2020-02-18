@@ -1,0 +1,13 @@
+legend { position:absolute; left:-10000%; top:0; overflow:hidden; width:1px; height:1px; font-size:0; line-height:0; text-indent:-10000px; }
+
+
+#nSearchformWrap {  }
+
+#nSearchform { position: relative; }
+.searchTextBox input#query { width: 500px; height: 20px; padding: 1rem; border: 2px solid #03cf5d; }
+.searchTextBox input#query:focus { outline: none; }
+.searchTextBox input#query:focus::placeholder { color: #03cf5d; }
+.searchTextBox input#query::placeholder { color: #aaa; }
+
+.searchLogoBox { position: absolute; display: inline-block; top: 8px; width: 50px; height: 56px; background-color: #03cf5d; line-height: 30px; margin: 0; }
+.searchLogoBox span { font-size: 50px; line-height: 42px; padding-left: 10px; color: #fff; cursor: pointer; }

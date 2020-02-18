@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		
+		<title>Learning JavaScript Example</title>
+
+		<link href="./style.css" rel="stylesheet">
+		<style>
+			body { max-width: 800px; line-height: 1.5; }
+			#runButton, #resetButton { padding: 10px 20px; margin-bottom: 1rem; cursor: pointer; }
+			#resetButton { cursor: not-allowed; }
+			#inputArea, #resArea { margin-left: 1rem; border: 3px dashed #ccc; padding: 1rem; transition: background-color 1s; background-color: #eee; }
+			#inputArea span { color: red; font-weight: bold; }
+			.resTit { margin-top: 2rem; }
+		</style>
+	</head>
+	<body>
+		<h3>3.7.1 이스케이프</h3>
+		<input id="runButton" type="button" value="Run">
+		<input id="resetButton" type="button" value="Reset" disabled="true">
+		<h3>Input: </h3>
+		<div id="inputArea">
+			const dialog = 'Sam looked up, and said "hello, old friend!", as Max walked in.';<br>
+			const dialog1 = "He looked up and said \"don't do that!\" to Max";<br>
+			const dialog2 = 'He looked up and said "don\'t do that!" to Max';<br>
+			const imperative = 'Don\'t do that!';<br>
+			const slashStr = 'In JavaScript, use \\ as an escape character in strings.';
+		</div>
+		<h3 class="resTit">Result: </h3>
+		<div id="resArea">
+			result area.
+		</div>
+	</body>
+	<script>
+		const dialog = 'Sam looked up, and said "hello, old friend!", as Max walked in.';
+		const dialog1 = "He looked up and said \"don't do that!\" to Max";
+		const dialog2 = 'He looked up and said "don\'t do that!" to Max';
+		const imperative = 'Don\'t do that!';
+		const slashStr = 'In JavaScript, use \\ as an escape character in strings.';
+		const RESULT_AREA_BACKGROUND_COLOR = '#ffbbbb';
+
+		let runBtn =  document.getElementById('runButton');
+		let resetBtn =  document.getElementById('resetButton');
+		let inputArea = document.getElementById('inputArea');
+		let resArea = document.getElementById('resArea')
+
+		// Event add
+		runBtn.addEventListener('click', runButtonClick);
+		resetBtn.addEventListener('click', resetButtonClick);
+
+		// backslash strong
+		//inputArea.innerHTML = inputArea.innerHTML.replace('/\\\\/gim', '<span>\\</span>').replace('/\\\\/gi', '<span>\\\\</span>');
+		inputArea.innerHTML = inputArea.innerHTML.split('\\').join('<span>\\</span>');
+		
+		function runButtonClick() {			
+			// runButton disable
+			runBtn.disabled = true;
+			runBtn.style.cursor = 'not-allowed';
+
+			// resetButton enable
+			resetBtn.disabled = false;
+			resetBtn.style.cursor = 'pointer';
+
+			// resultArea Text Changed
+			resArea.innerText = '';
+			resArea.innerText += 'dialog ----> ' + dialog;
+			resArea.innerText += '\n\ndialog1 ----> ' + dialog1;
+			resArea.innerText += '\n\ndialog2 ----> ' + dialog2;
+			resArea.innerText += '\n\nimperative  ----> ' + imperative;
+			resArea.innerText += '\n\nslashStr  ----> ' + slashStr;
+			resArea.style.backgroundColor = RESULT_AREA_BACKGROUND_COLOR;
+		}
+
+		function resetButtonClick() {
+			// resetButton disabled
+			resetBtn.disabled = true;
+			resetBtn.style.cursor = 'not-allowed';
+
+			// runButton enable
+			runBtn.disabled = false;
+			runBtn.style.cursor = 'pointer';
+
+			// resultArea Text init
+			resArea.innerText = 'result area.';
+			resArea.style.backgroundColor = '';
+		}
+	</script>
+</html>

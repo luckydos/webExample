@@ -1,0 +1,9 @@
+/* 속도 문제로 비활성화
+@import url("//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css");
+
+body {
+	font-family: 'D2Coding';
+}
+*/
+
+ul > li { margin: 10px 0; }

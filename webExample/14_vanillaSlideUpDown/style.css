@@ -1,0 +1,20 @@
+body { margin: 1rem; }
+
+input, button {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	padding: 10px 20px;
+	color: #fff;
+	background-color: #00f;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+input, button:active {
+	transform: translateX(1px) translateY(1px);
+}
+
+.wrap {  }
+
+.contentArea { background-color: #ccc; margin-top: 10px; max-height: 0px; overflow: hidden; transition: max-height .5s; }
+.contentArea.hide { height: auto; max-height: 500px; }

@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		
+		<title>DOM Enlightenment Example</title>
+		<style>
+			body { max-width: 800px; border: 1px solid #adadad; padding: 1rem; }
+			.alignCener { text-align: center; }
+
+			.tit { font-weight: bold; }
+			.codeBox, .codeResult { margin-left: 20px; padding: 1rem; border: 1px solid #adadad; word-wrap:break-word; }
+			.codeResult span.resRed { color: #f00; }
+
+			.hLine { margin: 30px 0; border-bottom: 1px dashed #ccc; }
+		</style>
+	</head>
+	<body>
+		<h3 class="alignCener">DOM nodeName, nodeType</h3>
+		<div class="hLine">&nbsp;</div>
+
+		<h5>//This is DOCUMENT_TYPE_NODE or nodeType 10 because Node.DOCUMENT_TYPE_NODE === 10</h5>
+		<div class="codeWrap">
+			<p class="tit">code</p>
+			<div class="codeBox">
+				<p>document.doctype.nodeName, //logs 'html' WHAT? try document.doctype to get &lt;!DOCTYPE html&gt;</p>
+				<p>document.doctype.nodeType //logs 10 which maps to DOCUMENT_TYPE_NODE</p>
+			</div>
+			<p class="tit"><button type="button" id="codeResultA">result</button></p>
+			<div class="codeResult">&nbsp;</div>
+		</div>
+
+		<div class="hLine">&nbsp;</div>
+
+		<h5>//This is DOCUMENT_NODE or nodeType 9 because Node.DOCUMENT_NODE === 9</h5>
+		<div class="codeWrap">
+			<p class="tit">code</p>
+			<div class="codeBox">
+				<p>document.nodeName, //logs '#document'</p>
+				<p>document.nodeType //logs 9 which maps to DOCUMENT_NODE</p>
+			</div>
+			<p class="tit"><button type="button" id="codeResultB">result</button></p>
+			<div class="codeResult">&nbsp;</div>
+		</div>
+
+		<div class="hLine">&nbsp;</div>
+
+		<h5>
+		//This is DOCUMENT_FRAGMENT_NODE or nodeType 11 because Node.DOCUMENT_FRAGMENT_NODE === 11</h5>
+		<div class="codeWrap">
+			<p class="tit">code</p>
+			<div class="codeBox">
+				<p>document.createDocumentFragment().nodeName, //logs '#document-fragment'</p>
+				<p>document.createDocumentFragment().nodeType //logs 11 which maps to DOCUMENT_FRAGMENT_NODE</p>
+			</div>
+			<p class="tit"><button type="button" id="codeResultC">result</button></p>
+			<div class="codeResult">&nbsp;</div>
+		</div>
+
+		<div class="hLine">&nbsp;</div>
+
+		<h5>//This is ELEMENT_NODE or nodeType 1 because Node. ELEMENT_NODE === 1</h5>
+		<div class="codeWrap">
+			<p class="tit">code</p>
+			<div class="codeBox">
+				<p>document.querySelector('a').nodeName, //logs 'A'</p>
+				<p>document.querySelector('a').nodeType //logs 1 which maps to ELEMENT_NODE</p>
+			</div>
+			<p class="tit"><button type="button" id="codeResultD">result</button></p>
+			<div class="codeResult">&nbsp;</div>
+		</div>
+
+		<div class="hLine">&nbsp;</div>
+
+		<h5>//This is ATTRIBUTE_NODE or nodeType 2 because Node.ATTRIBUTE_NODE === 2</h5>
+		<div class="codeWrap">
+			<p class="tit">code</p>
+			<div class="codeBox">
+				<p>document.querySelector('a').attributes['href'].nodeName, //logs 'href'</p>
+				<p>document.querySelector('a').attributes['href'].nodeType //logs 2 which maps to ATTRIBUTE_NODE</p>
+			</div>
+			<p class="tit"><button type="button" id="codeResultE">result</button></p>
+			<div class="codeResult">&nbsp;</div>
+		</div>
+
+
+		<div class="hLine">&nbsp;</div>
+
+		<h5>//This is TEXT_NODE or nodeType 3 because Node.TEXT_NODE === 3</h5>
+		<div class="codeWrap">
+			<p class="tit">code</p>
+			<div class="codeBox">
+				<p>document.querySelector('a').firstChild.nodeName, //logs '#text'</p>
+				<p>document.querySelector('a').firstChild.nodeType //logs 3 which maps to TEXT_NODE</p>
+			</div>
+			<p class="tit"><button type="button" id="codeResultF">result</button></p>
+			<div class="codeResult">&nbsp;</div>
+		</div>
+
+		<div class="hLine">&nbsp;</div>
+
+		<a href="https://jsfiddle.net/domenlightenment/8EwNu" target="_blank">https://jsfiddle.net/domenlightenment/8EwNu</a>
+		
+	</body>
+	<script>
+		window.onload = function () {
+			document.getElementById('codeResultA').addEventListener('click', resultA);
+			document.getElementById('codeResultB').addEventListener('click', resultB);
+			document.getElementById('codeResultC').addEventListener('click', resultC);
+			document.getElementById('codeResultD').addEventListener('click', resultD);
+			document.getElementById('codeResultE').addEventListener('click', resultE);
+			document.getElementById('codeResultF').addEventListener('click', resultF);
+
+			function resultA(event) {
+				var codeResult = event.target.parentNode.parentNode.querySelector('.codeResult');
+				codeResult.innerHTML = 
+					'<p>document.doctype.nodeName : <span class="resRed">' + document.doctype.nodeName + '<br></span>' + 
+					'document.doctype.nodeType : <span class="resRed">' + document.doctype.nodeType + '</span></p>';
+			}
+
+			function resultB(event) {
+				var codeResult = event.target.parentNode.parentNode.querySelector('.codeResult');
+				codeResult.innerHTML = '<p>document.nodeName : <span class="resRed">' + document.nodeName + '<br></span>' + 
+					'document.nodeType : <span class="resRed">' + document.nodeType + '</span></p>';
+			}
+
+			function resultC(event) {
+				var codeResult = event.target.parentNode.parentNode.querySelector('.codeResult');
+				codeResult.innerHTML = 
+					'<p>document.createDocumentFragment().nodeName : <span class="resRed">' + document.createDocumentFragment().nodeName + '<br></span>' + 
+					'document.createDocumentFragment().nodeType : <span class="resRed">' + document.createDocumentFragment().nodeType + '</span></p>';
+			}
+
+			function resultD(event) {
+				var codeResult = event.target.parentNode.parentNode.querySelector('.codeResult');
+				codeResult.innerHTML = 
+					'<p>document.querySelector(\'a\').nodeName : <span class="resRed">' + document.querySelector('a').nodeName + '<br></span>' + 
+					'document.querySelector(\'a\').nodeType : <span class="resRed">' + document.querySelector('a').nodeType + '</span></p>';
+			}
+
+			function resultE(event) {
+				var codeResult = event.target.parentNode.parentNode.querySelector('.codeResult');
+				codeResult.innerHTML = 
+					'<p>document.querySelector(\'a\').attributes[\'href\'].nodeName : <span class="resRed">' + document.querySelector('a').attributes['href'].nodeName + '<br></span>' + 
+					'document.querySelector(\'a\').attributes[\'href\'].nodeType : <span class="resRed">' + document.querySelector('a').attributes['href'].nodeType + '</span></p>';
+			}
+
+			function resultF(event) {
+				var codeResult = event.target.parentNode.parentNode.querySelector('.codeResult');
+				codeResult.innerHTML = 
+					'<p>document.querySelector(\'a\').firstChild.nodeName : <span class="resRed">' + document.querySelector('a').firstChild.nodeName + '<br></span>' + 
+					'document.querySelector(\'a\').firstChild.nodeType : <span class="resRed">' + document.querySelector('a').firstChild.nodeType + '</span></p>';
+			}
+
+		};
+	</script>
+</html>

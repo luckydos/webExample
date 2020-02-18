@@ -1,0 +1,138 @@
+html, body { height: 100%; margin: 0; }
+
+#contentWrap { 
+	position: relative;
+	height: 100%;
+}
+
+#modalContent {
+	position: absolute;
+	left: 50%;
+	top: 5%;
+	width: 50%;
+	transform: translateX(-50%);
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 1rem 1rem 80px 1rem;
+	z-index: 101;
+	text-align: center;
+}
+
+#modalContent #modalContentInner {
+	height: 100%;
+}
+
+#modalContent .playerTitle {
+	position: relative;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+	background-color: #f1f1f1;
+	border: 1px dashed #ccc;
+	border-left: none;
+	border-right: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#modalContent .playerTitle::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+	height: 100%;
+	border-left: 5px solid #065fd4;
+}
+
+#modalContent .playerTitle::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: '';
+	height: 100%;
+	border-right: 5px solid #065fd4;
+}
+
+#modalContentBack {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	z-index: 100;
+}
+
+.modalView {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .5s;
+}
+
+.modalView.on {
+	visibility: visible;
+	opacity: 1;
+}
+
+#modalContentBack.modalView.on {
+	opacity: .8;
+}
+
+input[type=button] {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.modalRunBtnWrap {
+	text-align: center;
+}
+
+.modalRun {
+	padding: 1rem 2rem;
+	margin: 10px 5px;
+	
+	background-color: #237fbc;
+	border: 1px solid #237fbc;
+	color: #fff;
+	cursor: pointer;
+	
+	border-radius: 5px;
+}
+
+#modalClose {
+	padding: 1rem 2rem;
+	position: absolute;
+	
+	background-color: #237fbc;
+	border: 1px solid #237fbc;
+	color: #fff;
+	cursor: pointer;
+	
+	border-radius: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.modalRun:hover, #modalClose:hover {
+	background-color: #166ea8;
+}
+
+.modalRun {
+	top: 1rem;
+}
+
+#modalClose {
+	bottom: 1rem;
+}	
+
+/* 유튜브 영상 반응형 스타일 */
+.youtubeWrap { position: relative; width: 100%; padding-bottom: 56.25%; }
+.youtubeWrap iframe { position: absolute; left: 0; width: 100%; height: 100%; }
+
+
+
+@media screen and (max-width: 1200px) {
+	#modalContent { width: 80%; }
+}

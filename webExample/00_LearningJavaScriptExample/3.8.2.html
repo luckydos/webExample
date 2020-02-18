@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		
+		<title>Learning JavaScript Example</title>
+
+		<link href="./style.css" rel="stylesheet">
+		<style>
+			body { max-width: 1000px; line-height: 1.5; }
+
+			.inputWarp { width: 500px; float: left; }
+			.resultWarp { width: 400px; float: right; }
+
+			#runButton, #resetButton { padding: 10px 20px; margin-bottom: 1rem; cursor: pointer; }
+			#resetButton { cursor: not-allowed; }
+			#inputArea, #resArea { margin-left: 1rem; border: 3px dashed #ccc; padding: 1rem; transition: background-color 1s; background-color: #eee; }
+			#inputArea span { color: red; font-weight: bold; }
+		</style>
+	</head>
+	<body>
+		<h3>3.8.2 여러 줄 문자열</h3>
+		<input id="runButton" type="button" value="Run">
+		<input id="resetButton" type="button" value="Reset" disabled="true">
+		<div></div>
+		<div class="inputWarp">
+			<h3>Input: </h3>
+			<div id="inputArea">
+				let currentTemp = 19.5;
+
+				<br><br>
+
+				const multiline1 = 'line1\<br>
+				line2';
+
+				<br><br>
+		
+				const multiline2 = 'line1\n\<br>
+				line2';
+
+				<br><br>
+		
+				const multiline3 = `line1<br>
+					line2<br>
+					line3`;
+				
+				<br><br>
+		
+				const multiline4 = 'line1\n' +<br>
+					'line2\n' +<br>
+					'line3';<br>
+				
+				<br><br>
+
+				const multiline5 = 'Current temperature:\n' +<br>
+					`temp\t${currentTemp}\u00b0c\n` +<br>
+					'Don\'t worry...the heat is on!';
+			</div>
+		</div>
+
+		<div class="resultWarp">
+			<h3 class="resTit">Result: </h3>
+			<div id="resArea">
+				result area.
+			</div>
+		</div>
+	</body>
+	<script>
+		const RESULT_AREA_BACKGROUND_COLOR = '#ffbbbb';
+
+		let currentTemp = 19.5;
+
+		const multiline1 = 'line1\
+		line2';
+
+		const multiline2 = 'line1\n\
+		line2';
+
+		const multiline3 = `line1
+			line2
+			line3`;
+
+		const multiline4 = 'line1\n' +
+			'line2\n' +
+			'line3';
+		
+		const multiline5 = 'Current temperature:\n' +
+			`temp\t${currentTemp}\u00b0c\n` +
+			'Don\'t worry...the heat is on!';
+
+		let runBtn =  document.getElementById('runButton');
+		let resetBtn =  document.getElementById('resetButton');
+		let inputArea = document.getElementById('inputArea');
+		let resArea = document.getElementById('resArea')
+
+		// Event add
+		runBtn.addEventListener('click', runButtonClick);
+		resetBtn.addEventListener('click', resetButtonClick);
+
+		// backslash strong
+		//inputArea.innerHTML = inputArea.innerHTML.replace('/\\\\/gim', '<span>\\</span>').replace('/\\\\/gi', '<span>\\\\</span>');
+		inputArea.innerHTML = inputArea.innerHTML.split('\\').join('<span>\\</span>');
+		
+		function runButtonClick() {			
+			// runButton disable
+			runBtn.disabled = true;
+			runBtn.style.cursor = 'not-allowed';
+
+			// resetButton enable
+			resetBtn.disabled = false;
+			resetBtn.style.cursor = 'pointer';
+
+			// resultArea Text Change
+			resArea.innerText = '';
+			resArea.innerText += 'multiline1 ----> \n' + multiline1;
+			resArea.innerText += '\n\nmultiline2 ----> \n' + multiline2;
+			resArea.innerText += '\n\nmultiline3 ----> \n' + multiline3;
+			resArea.innerText += '\n\nmultiline4 ----> \n' + multiline4;
+			resArea.innerText += '\n\nmultiline5 ----> \n' + multiline5;
+
+			// resultArea Background Color Change
+			resArea.style.backgroundColor = RESULT_AREA_BACKGROUND_COLOR;
+		}
+
+		function resetButtonClick() {
+			// resetButton disabled
+			resetBtn.disabled = true;
+			resetBtn.style.cursor = 'not-allowed';
+
+			// runButton enable
+			runBtn.disabled = false;
+			runBtn.style.cursor = 'pointer';
+
+			// resultArea Text init
+			resArea.innerText = 'result area.';
+			resArea.style.backgroundColor = '';
+		}
+	</script>
+</html>

@@ -1,0 +1,8 @@
+* { margin: 0; padding: 0; }
+li { list-style: none; }
+.sliderWrap { width: 500px; height: 380px; background-color: #aaa; overflow: hidden; border: 1px solid #f00; margin: 10px auto; }
+.sliderWrap ul.slider { display: flex; margin-top: 10px;}
+.sliderWrap ul.slider.mtran { transition: margin-left 1s; }
+
+#vButton, #output { text-align: center; }
+#vButton input[type=button] { padding: 5px 10px; }

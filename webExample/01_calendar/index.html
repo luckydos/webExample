@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="style.css">
+		<title>Calendar Draw(Vanilla Coding)</title>
+	</head>
+	<body>
+		<div class="main">
+			
+			<!--<p><span id="viewYear">year</span>년</p>-->
+			<select id="viewYear">
+				
+			</select>년
+			<div id="calMon">
+				<input id="prevMontn" type="button" value="&lt;">
+				<span id="viewMonth"></span>월
+				<input id="nextMontn" type="button" value="&gt;">
+				<input id="goToday" type="button" value="오늘">
+			</div>
+			
+			<table id="calTbl">
+				<thead>
+					<tr>
+						<th class="sun">일</th>
+						<th>월</th>
+						<th>화</th>
+						<th>수</th>
+						<th>목</th>
+						<th>금</th>
+						<th class="sat">토</th>
+					</tr>
+				</thead>
+				<tbody id="calTblBody">
+				</tbody>
+			</table>
+		</div>
+		
+		<script src="script.js"></script>
+	</body>
+</html>

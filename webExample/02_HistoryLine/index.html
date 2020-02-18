@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		
+		<title>History Line</title>
+		
+		<style>
+			
+			ul, ol { margin: 0; padding: 0; }
+			li { list-style: none; margin: 10px; }
+			
+			#historyWrap { /*background-color: #f00;*/ border-left: 5px solid #0f0; margin-left: 50px; padding: 10px; }
+			
+			.historyLine { position: relative; }
+			.historyLine::before { content:""; position: absolute; left: -33px; top: 0; width: 10px; height: 10px; border: 5px solid #00f; border-radius: 50%; background-color: #fff; }
+			
+		</style>
+		<script>
+			window.onload = function() {
+				
+			}
+		</script>
+
+	</head>
+	<body>
+		<h3>History Line.</h3>
+		<br>
+		<ul id="historyWrap">
+			<li>
+				<div class="historyLine">
+					<p>history 1</p>
+					<p>history 1</p>
+					<p>history 1</p>
+				</div>
+			</li>
+			<li>
+				<div class="historyLine">
+					history 2
+				</div>
+			</li>
+			<li>
+				<div class="historyLine">
+					history 3
+				</div>
+			</li>
+			<li>
+				<div class="historyLine">
+					history 4
+				</div>
+			</li>
+			<li>
+				<div class="historyLine">
+					history 5
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

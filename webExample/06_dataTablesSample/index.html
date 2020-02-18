@@ -1,0 +1,583 @@
+<!doctype html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+
+	<title>dataTables Sample</title>
+
+	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+	</script>
+	<script type="text/javascript" charset="utf8"
+		src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+
+	<style>
+
+	</style>
+	<script>
+		window.onload = function () {
+			var lang_kor = {
+				"sEmptyTable": "데이터가 없습니다",
+				"sInfo": "_START_ - _END_ / 전체 _TOTAL_ 개",
+				"sInfoEmpty": "0 - 0 / 0",
+				"sInfoFiltered": "(총 _MAX_ 개)",
+				"sInfoPostFix": "",
+				"sInfoThousands": ",",
+				"sLengthMenu": "페이지당 줄수 _MENU_",
+				"sLoadingRecords": "읽는중...",
+				"sProcessing": "처리중...",
+				"sSearch": "검색:",
+				"sZeroRecords": "검색 결과가 없습니다",
+				"oPaginate": {
+					"sFirst": "처음",
+					"sLast": "마지막",
+					"sNext": "다음",
+					"sPrevious": "이전"
+				},
+				"oAria": {
+					"sSortAscending": ": 오름차순 정렬",
+					"sSortDescending": ": 내림차순 정렬"
+				}
+			}
+			dTable = $("#pullListAll").DataTable({
+				responsive: {
+					details: {
+						type: 'column'
+						//,target: 'tr'
+					}
+				},
+				columnDefs: [{
+						className: 'control',
+						orderable: false,
+						targets: 0
+					},
+					{
+						className: 'dt-body-center',
+						targets: '_all'
+					}
+				],
+				order: [1, 'asc'],
+				language: lang_kor
+			});
+
+
+
+			// Handle click on "Expand All" button
+			$('#btn-show-all-children').on('click', function () {
+				// Expand row details
+				dTable.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
+			});
+
+			// Handle click on "Collapse All" button
+			$('#btn-hide-all-children').on('click', function () {
+				// Collapse row details
+				dTable.rows('.parent').nodes().to$().find('td:first-child').trigger('click');
+			});
+		}
+	</script>
+
+</head>
+
+<body>
+	<div style="text-align: center;">
+		<input type="button" id="btn-show-all-children" value="모두 열기">
+		<input type="button" id="btn-hide-all-children" value="모두 닫기">
+	</div>
+	<br><br>
+	<table id="pullListAll" class="display nowrap" style="width:100%">
+		<caption>tableTitle</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>순번</th>
+				<th>식품군</th>
+				<th>1회제공량(g)</th>
+				<th>열량(kcal)</th>
+				<th>탄수화물(g)</th>
+				<th>단백질(g)</th>
+				<!--<th>안내사항</th>-->
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td></td>
+				<td>1</td>
+				<td>100</td>
+				<td>15</td>
+				<td>3.32</td>
+				<td>0.33</td>
+				<td>0.01</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>2</td>
+				<td>100</td>
+				<td>20</td>
+				<td>4.4</td>
+				<td>0.4</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>3</td>
+				<td>100</td>
+				<td>20</td>
+				<td>4.4</td>
+				<td>0.4</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>4</td>
+				<td>100</td>
+				<td>66</td>
+				<td>14.9</td>
+				<td>1.3</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>5</td>
+				<td>100</td>
+				<td>66</td>
+				<td>14.9</td>
+				<td>1.3</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>6</td>
+				<td>100</td>
+				<td>152</td>
+				<td>33.2</td>
+				<td>3</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>7</td>
+				<td>100</td>
+				<td>145</td>
+				<td>33.2</td>
+				<td>3</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>8</td>
+				<td>100</td>
+				<td>373</td>
+				<td>83.7</td>
+				<td>5.2</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>9</td>
+				<td>100</td>
+				<td>354</td>
+				<td>83.7</td>
+				<td>5.2</td>
+				<td>0.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>10</td>
+				<td>100</td>
+				<td>145</td>
+				<td>37.3</td>
+				<td>3.3</td>
+				<td>0.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>11</td>
+				<td>100</td>
+				<td>167</td>
+				<td>37.3</td>
+				<td>3.3</td>
+				<td>0.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>12</td>
+				<td>100</td>
+				<td>374</td>
+				<td>86.8</td>
+				<td>6.8</td>
+				<td>0.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>13</td>
+				<td>100</td>
+				<td>98</td>
+				<td>21.7</td>
+				<td>4.5</td>
+				<td>0.3</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>14</td>
+				<td>100</td>
+				<td>80</td>
+				<td>21.7</td>
+				<td>4.5</td>
+				<td>0.3</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>15</td>
+				<td>100</td>
+				<td>356</td>
+				<td>87.5</td>
+				<td>0.2</td>
+				<td>0.4</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>16</td>
+				<td>100</td>
+				<td>345</td>
+				<td>84.6</td>
+				<td>0.2</td>
+				<td>0.4</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>17</td>
+				<td>100</td>
+				<td>70</td>
+				<td>15.2</td>
+				<td>1.2</td>
+				<td>0.4</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>18</td>
+				<td>100</td>
+				<td>70</td>
+				<td>15.2</td>
+				<td>1.2</td>
+				<td>0.4</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>19</td>
+				<td>100</td>
+				<td>345</td>
+				<td>79.5</td>
+				<td>6.4</td>
+				<td>0.4</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>20</td>
+				<td>100</td>
+				<td>363</td>
+				<td>79.5</td>
+				<td>6.4</td>
+				<td>0.4</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>21</td>
+				<td>100</td>
+				<td>316</td>
+				<td>69.8</td>
+				<td>15.7</td>
+				<td>0.5</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>22</td>
+				<td>100</td>
+				<td>259</td>
+				<td>69.8</td>
+				<td>15.7</td>
+				<td>0.5</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>23</td>
+				<td>100</td>
+				<td>311</td>
+				<td>71.7</td>
+				<td>10.9</td>
+				<td>0.6</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>24</td>
+				<td>100</td>
+				<td>246</td>
+				<td>71.7</td>
+				<td>10.9</td>
+				<td>0.6</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>25</td>
+				<td>100</td>
+				<td>206</td>
+				<td>43.9</td>
+				<td>6</td>
+				<td>0.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>26</td>
+				<td>100</td>
+				<td>213</td>
+				<td>46.7</td>
+				<td>9.9</td>
+				<td>0.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>27</td>
+				<td>100</td>
+				<td>307</td>
+				<td>72.2</td>
+				<td>12.4</td>
+				<td>0.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>28</td>
+				<td>100</td>
+				<td>345</td>
+				<td>72.2</td>
+				<td>12.4</td>
+				<td>0.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>29</td>
+				<td>100</td>
+				<td>103</td>
+				<td>12.1</td>
+				<td>16.5</td>
+				<td>1.5</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>30</td>
+				<td>100</td>
+				<td>367</td>
+				<td>74.6</td>
+				<td>11.2</td>
+				<td>1.9</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>31</td>
+				<td>100</td>
+				<td>360</td>
+				<td>74.6</td>
+				<td>11.2</td>
+				<td>1.9</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>32</td>
+				<td>100</td>
+				<td>101</td>
+				<td>18.5</td>
+				<td>2.2</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>33</td>
+				<td>100</td>
+				<td>103</td>
+				<td>18.5</td>
+				<td>2.2</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>34</td>
+				<td>100</td>
+				<td>357</td>
+				<td>75.8</td>
+				<td>6.5</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>35</td>
+				<td>100</td>
+				<td>354</td>
+				<td>75.3</td>
+				<td>6.5</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>36</td>
+				<td>100</td>
+				<td>375</td>
+				<td>74.9</td>
+				<td>8.8</td>
+				<td>3.1</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>37</td>
+				<td>100</td>
+				<td>349</td>
+				<td>67.8</td>
+				<td>10.1</td>
+				<td>3.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>38</td>
+				<td>100</td>
+				<td>373</td>
+				<td>73.5</td>
+				<td>11.4</td>
+				<td>3.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>39</td>
+				<td>100</td>
+				<td>332</td>
+				<td>73.5</td>
+				<td>11.4</td>
+				<td>3.7</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>40</td>
+				<td>100</td>
+				<td>334</td>
+				<td>70.4</td>
+				<td>14.3</td>
+				<td>3.8</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>41</td>
+				<td>100</td>
+				<td>371</td>
+				<td>70.4</td>
+				<td>14.3</td>
+				<td>3.8</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>42</td>
+				<td>30</td>
+				<td>129.9</td>
+				<td>20.13</td>
+				<td>3.54</td>
+				<td>3.96</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>43</td>
+				<td>30</td>
+				<td>135.3</td>
+				<td>11.73</td>
+				<td>11.31</td>
+				<td>4.8</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>44</td>
+				<td>100</td>
+				<td>378</td>
+				<td>79.2</td>
+				<td>1.4</td>
+				<td>6.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>45</td>
+				<td>100</td>
+				<td>378</td>
+				<td>79.2</td>
+				<td>1.4</td>
+				<td>6.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>46</td>
+				<td>100</td>
+				<td>370</td>
+				<td>81.8</td>
+				<td>7.2</td>
+				<td>7.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>47</td>
+				<td>100</td>
+				<td>363</td>
+				<td>76.6</td>
+				<td>11</td>
+				<td>7.5</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>48</td>
+				<td>100</td>
+				<td>382</td>
+				<td>64.9</td>
+				<td>13.2</td>
+				<td>8.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>49</td>
+				<td>100</td>
+				<td>348</td>
+				<td>64.9</td>
+				<td>13.2</td>
+				<td>8.2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>50</td>
+				<td>100</td>
+				<td>313</td>
+				<td>74.97</td>
+				<td>7.61</td>
+				<td>8.36</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>51</td>
+				<td>30</td>
+				<td>161.4</td>
+				<td>14.67</td>
+				<td>3.96</td>
+				<td>9.66</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>52</td>
+				<td>30</td>
+				<td>173.4</td>
+				<td>10.17</td>
+				<td>6.42</td>
+				<td>11.88</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

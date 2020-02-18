@@ -1,0 +1,15 @@
+#calTbl { border: 1px solid #ccc; margin-top: 1rem; }
+#calTbl th, #calTbl td span { text-align:center; width: 50px; height: 50px; line-height: 50px; }
+#calTbl td  span { display: block; cursor: pointer; }
+#calTbl td span:hover { background-color: #eee; }
+
+#calTbl .today { background-color: #00f; color: #fff; border-radius: 50%; }
+#calTbl .sun, #calTbl .week_0 { color: #f00; }
+#calTbl .sat, #calTbl .week_6 { color: #00f; }
+
+#calMon { display:inline-block; text-align: center; }
+#calMon #viewMonth { display:inline-block; width: 20px; }
+
+#prevMontn, #nextMontn, #goToday { cursor: pointer; margin: 0 10px; }
+
+#viewYear { width: 65px; height: 30px; }
