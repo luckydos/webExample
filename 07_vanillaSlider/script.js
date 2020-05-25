@@ -87,4 +87,28 @@ window.onload = function() {
 	function indexOutput() {
 		document.getElementById('output').innerText = 'index: ' + index;
 	}
+
+	// topMenuInclude init
+	includeHTML();
+
+	// topMenuInclude Button
+	setTimeout(function() {
+		Array.from(document.querySelectorAll('.topMenuBtn')).forEach(function(target) {
+			let targetVal = target.getAttribute('id');
+			// console.log(targetVal);
+			if(targetVal === 'rootButton') {
+				target.addEventListener('click', function(e) {
+					location.href = '/';
+				});
+			} else if(targetVal === 'homeButton') {
+				target.addEventListener('click', function(e) {
+					location.href = '/webExample';
+				});
+			} else if(targetVal === 'backButton') {
+				target.addEventListener('click', function(e) {
+					history.back();
+				});
+			}
+		});
+	}, 100);
 }

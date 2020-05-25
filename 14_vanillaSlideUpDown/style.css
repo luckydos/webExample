@@ -1,6 +1,6 @@
-body { margin: 1rem; }
+/*body { margin: 1rem; }*/
 
-input, button {
+.wrap input, .wrap button {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 	padding: 10px 20px;
@@ -10,7 +10,7 @@ input, button {
 	border-radius: 5px;
 }
 
-input, button:active {
+.wrap input, .wrap button:active {
 	transform: translateX(1px) translateY(1px);
 }
 

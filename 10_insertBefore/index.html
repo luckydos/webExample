@@ -6,6 +6,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 		
 		<title>insertBefore Sample</title>
+
+		<link rel="stylesheet" type="text/css" href="../commonStyle.css">
+		<script src="../commonScript.js"></script>
 		
 		<style>
 			body > div { margin-left: 1rem; }
@@ -37,11 +40,16 @@
 					referenceNode = null;
 					parentUl.insertBefore(newNode, referenceNode);
 				});
+
+				// topMenuInclude init
+				topMenuInit();
 			}
 		</script>
 
 	</head>
 	<body>
+		<hr>
+		<header w3-include-html="../topMenu/commonTopMenu.html"></header>
 		<h1>insertBefore Sample</h1>
 
 		<hr>

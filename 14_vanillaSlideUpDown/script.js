@@ -10,4 +10,7 @@ window.onload = function() {
 		console.log(contentArea.getAttribute('class'));
 		console.log(contentArea.getAttribute('class').indexOf('hide'));
 	})
+
+	// topMenuInclude init
+	topMenuInit();
 }

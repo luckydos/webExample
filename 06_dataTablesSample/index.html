@@ -11,8 +11,10 @@
 	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
 	</script>
-	<script type="text/javascript" charset="utf8"
-		src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../commonStyle.css">
+	<script src="../commonScript.js"></script>
 
 
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -81,12 +83,17 @@
 				// Collapse row details
 				dTable.rows('.parent').nodes().to$().find('td:first-child').trigger('click');
 			});
+
+			// topMenuInclude init
+			topMenuInit();
 		}
 	</script>
 
 </head>
 
 <body>
+	<hr>
+	<header w3-include-html="../topMenu/commonTopMenu.html"></header>
 	<div style="text-align: center;">
 		<input type="button" id="btn-show-all-children" value="모두 열기">
 		<input type="button" id="btn-hide-all-children" value="모두 닫기">

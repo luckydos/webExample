@@ -6,6 +6,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 		
 		<title>Table Pagination</title>
+
+		<link rel="stylesheet" type="text/css" href="../commonStyle.css">
+		<script src="../commonScript.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 		<style>
@@ -231,11 +234,16 @@
 			window.onload = function() {
 				pagination();
 				document.querySelector('.pagination li:first-child').classList.add('disabled');
+
+				// topMenuInclude init
+				topMenuInit();
 			}
 		</script>
 
 	</head>
 	<body>
+		<hr>
+		<header w3-include-html="../topMenu/commonTopMenu.html"></header>
 		<div class="table-responsive">
 			<select name="viewListCount" id="viewListCount">
 				<option value="5">5</option>
