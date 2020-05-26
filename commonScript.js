@@ -9,7 +9,6 @@ function topMenuInit() {
 
 function topMenuCallback() {
 	// topMenuInclude Button
-	console.log('topMenuEventAdd() run.');
 	setTimeout(function() {
 		Array.from(document.querySelectorAll('.topMenuBtn')).forEach(function(target) {
 			let targetVal = target.getAttribute('id');
