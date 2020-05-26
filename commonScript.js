@@ -4,9 +4,12 @@ window.onload = function() {
 }
 
 function topMenuInit() {
-	includeHTML();
+	includeHTML(topMenuCallback);
+}
 
+function topMenuCallback() {
 	// topMenuInclude Button
+	console.log('topMenuEventAdd() run.');
 	setTimeout(function() {
 		Array.from(document.querySelectorAll('.topMenuBtn')).forEach(function(target) {
 			let targetVal = target.getAttribute('id');
@@ -25,13 +28,13 @@ function topMenuInit() {
 				});
 			}
 		});
-	}, 100);
+	}, 500);
 }
 
 
 // topMenuInclude
 // https://www.w3schools.com/howto/howto_html_include.asp
-function includeHTML() {
+function includeHTML(cb) {
 	var z, i, elmnt, file, xhttp;
 	/* Loop through a collection of all HTML elements: */
 	z = document.getElementsByTagName("*");
@@ -52,7 +55,7 @@ function includeHTML() {
 					}
 					/* Remove the attribute, and call this function once more: */
 					elmnt.removeAttribute("w3-include-html");
-					includeHTML();
+					includeHTML(cb);
 				}
 			}
 			xhttp.open("GET", file, true);
@@ -61,4 +64,5 @@ function includeHTML() {
 			return;
 		}
 	}
+	if(cb) {cb();}
 }
