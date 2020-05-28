@@ -16,13 +16,37 @@
 		.slickSlider { width: 90%; margin: 0 auto; }
 		.slickSlider img { width: 100%; }
 
-		.slick-slide { height: auto; }
+		.slick-slide { height: auto; border-left: 1px dashed #fcf8ed;}
+
+		/* slide-caption add */
+		.slick-slide { position: relative; }
+		.slide-caption {
+			bottom: 15px;
+			height: 10px;
+			left: 0;
+			text-align: center;
+			position: absolute;
+			width: 100%;
+			z-index: 2;
+		}
+
+
+
+		/*.slick-next:before, .slick-prev:before { color: #000; }*/
+		
+		/* arrows size edit. */
+		@media (min-width:768px) {
+			.slick-next, .slick-prev { width: 40px; height: 40px; }
+			.slick-prev { left: -45px; }
+			.slick-next { right: -45px; }
+			.slick-next:before, .slick-prev:before { font-size: 40px; }
+		}
 	</style>
 </head>
 
 <body>
 	<div id="screenWidthPrnt">width Size : <span class="swpVal"></span></div>
-	<section class="slickSlider">
+	<section class="slickSlider slide--has-caption">
 	<!--
 		<div><img src="images/01.jpg"></div>
 		<div><img src="images/02.jpg"></div>
@@ -30,14 +54,14 @@
 		<div><img src="images/04.jpg"></div>
 		<div><img src="images/05.jpg"></div>
 	-->
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160231.jpg" alt="1"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160237.jpg" alt="2"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160242.jpg" alt="3"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160247.jpg" alt="4"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160254.jpg" alt="5"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160259.jpg" alt="6"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160305.jpg" alt="7"></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160310.jpg" alt="8"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160231.jpg" alt="1"><div class="slide-caption">- 1 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160237.jpg" alt="2"><div class="slide-caption">- 2 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160242.jpg" alt="3"><div class="slide-caption">- 3 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160247.jpg" alt="4"><div class="slide-caption">- 4 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160254.jpg" alt="5"><div class="slide-caption">- 5 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160259.jpg" alt="6"><div class="slide-caption">- 6 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160305.jpg" alt="7"><div class="slide-caption">- 7 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160310.jpg" alt="8"><div class="slide-caption">- 8 -</div></div>
 	</section>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -53,20 +77,26 @@
 		};
 		$(document).ready(function() {
 			$(".slickSlider").slick({
-				slidesToShow: 2,
+				slidesToShow: 3,
 				slidesToScroll: 1,
 				arrows: true,
 				dots: true,
 				responsive: [ // 반응형
 					{
-						breakpoint: 1000,
+						breakpoint: 1200,
+						settings: {
+							slidesToShow: 2
+						}
+					},
+					{
+						breakpoint: 800,
 						settings: {
 							slidesToShow: 1
 						}
 					},
-					{}
 				]
-			})
+			});
+
 		});
 		
 		$(document).keydown(function(event) {
