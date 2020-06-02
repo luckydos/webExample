@@ -30,7 +30,52 @@
 			z-index: 2;
 		}
 
+		
+		
+		.cnPause {
+			box-shadow:inset 0px 1px 0px 0px #cf866c;
+			background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+			background-color:#d0451b;
+			border-radius:3px;
+			border:1px solid #942911;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:13px;
+			padding:6px 24px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #854629;
+		}
+		.cnPause:hover {
+			background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+			background-color:#bc3315;
+		}
 
+		.cnPlay {
+			box-shadow:inset 0px 1px 0px 0px #54a3f7;
+			background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+			background-color:#007dc1;
+			border-radius:3px;
+			border:1px solid #124d77;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:13px;
+			padding:6px 24px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #154682;
+		}
+		.cnPlay:hover {
+			background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+			background-color:#0061a7;
+		}
+
+		.cnControl:active {
+			position:relative;
+			top:1px;
+		}
 
 		/*.slick-next:before, .slick-prev:before { color: #000; }*/
 		
@@ -40,12 +85,16 @@
 			.slick-prev { left: -45px; }
 			.slick-next { right: -45px; }
 			.slick-next:before, .slick-prev:before { font-size: 40px; }
+
+			.slick-dots { bottom: -50px; }
 		}
 	</style>
 </head>
 
 <body>
 	<div id="screenWidthPrnt">width Size : <span class="swpVal"></span></div>
+	<!-- play, pause button -->
+	<p style="text-align: center"><button class="cnControl cnPlay">재생</button> <button class="cnControl cnPause">정지</button></p>
 	<section class="slickSlider slide--has-caption">
 	<!--
 		<div><img src="images/01.jpg"></div>
@@ -54,15 +103,21 @@
 		<div><img src="images/04.jpg"></div>
 		<div><img src="images/05.jpg"></div>
 	-->
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160231.jpg" alt="1"><div class="slide-caption">- 1 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160237.jpg" alt="2"><div class="slide-caption">- 2 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160242.jpg" alt="3"><div class="slide-caption">- 3 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160247.jpg" alt="4"><div class="slide-caption">- 4 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160254.jpg" alt="5"><div class="slide-caption">- 5 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160259.jpg" alt="6"><div class="slide-caption">- 6 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160305.jpg" alt="7"><div class="slide-caption">- 7 -</div></div>
-		<div><img src="http://school.gyo6.net/board/x_free/upload/20200526/IMG_160310.jpg" alt="8"><div class="slide-caption">- 8 -</div></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_01.jpg" alt="1"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_02.jpg" alt="2"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_03.jpg" alt="3"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_04.jpg" alt="4"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_05.jpg" alt="5"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_06.jpg" alt="6"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_07.jpg" alt="7"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_08.jpg" alt="8"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_09.jpg" alt="9"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_10.jpg" alt="10"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_11.jpg" alt="12"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_12.jpg" alt="13"></div>
+		<div><img src="http://school.gyo6.net/board/x_free/upload/20200601/cn_13.jpg" alt="14"></div>
 	</section>
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
@@ -77,6 +132,8 @@
 		};
 		$(document).ready(function() {
 			$(".slickSlider").slick({
+				autoplay: true,
+				autoplaySpeed: 1000,
 				speed: 300,
 				slidesToShow: 3,
 				slidesToScroll: 1,
@@ -84,7 +141,7 @@
 				dots: true,
 				responsive: [ // 반응형
 					{
-						breakpoint: 1200,
+						breakpoint: 1500,
 						settings: {
 							slidesToShow: 2
 						}
@@ -105,6 +162,15 @@
 				$(".slickSlider").slick('slickPrev');
 			} else if(event.keyCode === 39) {
 				$(".slickSlider").slick('slickNext');
+			}
+		});
+
+		$('.cnControl').on('click', function(e) {
+			var className = $(this).text();
+			if(className === '재생') {
+				$(".slickSlider").slick('slickPlay');
+			} else if(className === '정지') {
+				$(".slickSlider").slick('slickPause');
 			}
 		});
 	</script>
