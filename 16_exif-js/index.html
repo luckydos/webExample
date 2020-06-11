@@ -1,0 +1,31 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	
+	<title>exif-js</title>
+
+	<script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+	<style>
+		#exifImg { max-width: 300px; }
+	</style>
+</head>
+
+<body>
+	<p><img id="exifImg" src="./img.jpg"></p>
+	<br><br><br>
+	<p id='exifAllTag'></p>
+
+	<script type="text/javascript">
+		var ei = document.getElementById('exifImg');
+		EXIF.getData(ei, function() {
+			var allExifData = EXIF.getAllTags(this);
+			var exifAllTag = document.getElementById('exifAllTag');
+			exifAllTag.innerHTML = 'exif : ' + JSON.stringify(allExifData, null, '\t');
+			console.log(allExifData);
+		});
+	</script>
+</body>
+
+</html>
