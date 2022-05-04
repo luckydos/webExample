@@ -1,10 +1,11 @@
-.cpName { font-size: 16px; }
+.cpName { font-size: 16px; text-align: center; }
 .cpName span { display:inline-block; padding: .5rem 1rem; border: 3px double #aaa; border-radius: 5px; }
 
-.cpWhybuy { display: inline-block; font-size: 16px; padding: 1rem; border: 1px dashed red; }
-.cpWhybuy h3 { display: block; }
-.cpWhybuy ul { list-style-type: circle; }
+.cpBSWrap { display: flex; justify-content: space-around; flex-wrap: wrap; }
+.cpBSWrap .cpWhybuy, .cpBSWrap .cpWhensell { width: 45%; display: inline-block; font-size: 16px; padding: .5rem 1rem; border: 3px double #aaa; border-radius: 10px; }
 
-.cpWhensell { display: inline-block; font-size: 16px; padding: 1rem; border: 1px dashed red; }
-.cpWhensell h3 { display: block; }
-.cpWhensell ul { list-style-type: circle; }
+.cpBSWrap .cpWhybuy, .cpBSWrap .cpWhensell { margin-top: 1rem; }
+.cpBSWrap .cpWhybuy h3, .cpBSWrap .cpWhensell h3 { display: block; }
+.cpBSWrap .cpWhybuy ul, .cpBSWrap .cpWhensell ul { list-style-type: none; }
+.cpBSWrap .cpWhybuy ul li, .cpBSWrap .cpWhensell ul li { position: relative; line-height: 26px; }
+.cpBSWrap .cpWhybuy ul li::before, .cpBSWrap .cpWhensell ul li::before { content: '-'; position: absolute; left: -15px;  }
