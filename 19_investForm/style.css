@@ -1,0 +1,5 @@
+.cpName { font-size: 16px; text-align: center; }
+.cpName h3 { display:inline-block; padding: .5rem 1rem; border: 3px double #aaa; border-radius: 5px; }
+
+.cpWhybuy { font-size: 16px; }
+.cpWhybuy h3 { display: block; }
